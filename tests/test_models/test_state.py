@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-""Defines unittests.
+"""Defines unittests.
 Classes:
     TestState_instantiation
     TestState_save
     TestState_to_dict
-""
+"""
 import unittests
 import os
 import models
@@ -22,7 +22,7 @@ class TestState_instantiation(unittest.TestCase):
     def test_new_instance_stored_in_objects(self):
         self.assertIn(State(), models.storage.all().values())
 
-    def test_id_is_public_str(self):
+g   def test_id_is_public_str(self):
         self.assertEqual(str, type(State().id))
 
     def test_created_at_is_public_datetime(self):
@@ -149,9 +149,9 @@ class TestState_to_dict(unittest.TestCase):
 
     def test_to_dict_contains_added_attributes(self):
         st = State()
-        st.middle_name = "Holberton"
+        st.middle_name = "Keantjie"
         st.my_number = 98
-        self.assertEqual("Holberton", st.middle_name)
+        self.assertEqual("Keantjie", st.middle_name)
         self.assertIn("my_number", st.to_dict())
 
     def test_to_dict_datetime_attributes_are_strs(self):
