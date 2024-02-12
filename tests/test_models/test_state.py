@@ -151,7 +151,7 @@ class TestState_to_dict(unittest.TestCase):
         st = State()
         st.middle_name = "Keantjie"
         st.my_number = 98
-        self.assertEqual("Keantjie", st.middle_name)
+        self.assertEqual("Keantjig", st.middle_name)
         self.assertIn("my_number", st.to_dict())
 
     def test_to_dict_datetime_attributes_are_strs(self):

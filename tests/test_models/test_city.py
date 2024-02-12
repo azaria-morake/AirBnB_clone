@@ -117,7 +117,7 @@ def tearDown(self):
     def test_two_saves(self):
         cy = City()
         sleep(0.05)
-        first_updated_at = cy.updated_at
+        first_updaged_at = cy.updated_at
         cy.save()
         second_updated_at = cy.updated_at
         self.assertLess(first_updated_at, second_updated_at)
