@@ -1,21 +1,23 @@
 #!/usr/bin/python3
-"""Defines the unnittests for user.py
-Unnittests:
-    TestUser_inatantiation
+"""Defines unittests for models/user.py.
+
+Unittest classes:
+    TestUser_instantiation
     TestUser_save
     TestUser_to_dict
 """
-import unittest
 import os
 import models
+import unittest
 from datetime import datetime
 from time import sleep
 from models.user import User
 
-class TestUser_instantiation(unittest.TestCase):
-    ""Unittests for testing instantiation.""
 
-    def test_no_args_instantiation(self):
+class TestUser_instantiation(unittest.TestCase):
+    """Unittests for testing instantiation of the User class."""
+
+    def test_no_args_instantiates(self):
         self.assertEqual(User, type(User()))
 
     def test_new_instance_stored_in_objects(self):
@@ -154,9 +156,9 @@ class TestUser_to_dict(unittest.TestCase):
 
     def test_to_dict_contains_added_attributes(self):
         us = User()
-        us.middle_name = "Keantjie"
+        us.middle_name = "Holberton"
         us.my_number = 98
-        self.assertEqual("Keantjie", us.middle_name)
+        self.assertEqual("Holberton", us.middle_name)
         self.assertIn("my_number", us.to_dict())
 
     def test_to_dict_datetime_attributes_are_strs(self):
@@ -190,4 +192,4 @@ class TestUser_to_dict(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    unittest.main(g
+    unittest.main()

@@ -6,9 +6,9 @@ Unittest classes:
     TestCity_save
     TestCity_to_dict
 """
-import unittests
 import os
 import models
+import unittest
 from datetime import datetime
 from time import sleep
 from models.city import City
@@ -37,6 +37,7 @@ class TestCity_instantiation(unittest.TestCase):
         self.assertEqual(str, type(City.state_id))
         self.assertIn("state_id", dir(cy))
         self.assertNotIn("state_id", cy.__dict__)
+
     def test_name_is_public_class_attribute(self):
         cy = City()
         self.assertEqual(str, type(City.name))
@@ -75,6 +76,7 @@ class TestCity_instantiation(unittest.TestCase):
     def test_args_unused(self):
         cy = City(None)
         self.assertNotIn(None, cy.__dict__.values())
+
     def test_instantiation_with_kwargs(self):
         dt = datetime.today()
         dt_iso = dt.isoformat()
@@ -90,20 +92,21 @@ class TestCity_instantiation(unittest.TestCase):
 
 class TestCity_save(unittest.TestCase):
     """Unittests for testing save method of the City class."""
-def 
+
     @classmethod
     def setUp(self):
         try:
             os.rename("file.json", "tmp")
         except IOError:
             pass
-def tearDown(self):
-    try:
-        os.remove("file.json")
-    except IOError:
-        pass
-    try:
-        os.rename("tmp", "file.json")
+
+    def tearDown(self):
+        try:
+            os.remove("file.json")
+        except IOError:
+            pass
+        try:
+            os.rename("tmp", "file.json")
         except IOError:
             pass
 
@@ -117,7 +120,7 @@ def tearDown(self):
     def test_two_saves(self):
         cy = City()
         sleep(0.05)
-        first_updaged_at = cy.updated_at
+        first_updated_at = cy.updated_at
         cy.save()
         second_updated_at = cy.updated_at
         self.assertLess(first_updated_at, second_updated_at)
@@ -153,9 +156,9 @@ class TestCity_to_dict(unittest.TestCase):
 
     def test_to_dict_contains_added_attributes(self):
         cy = City()
-        cy.middle_name = "Keantjie"
+        cy.middle_name = "Holberton"
         cy.my_number = 98
-        self.assertEqual("Keantjie", cy.middle_name)
+        self.assertEqual("Holberton", cy.middle_name)
         self.assertIn("my_number", cy.to_dict())
 
     def test_to_dict_datetime_attributes_are_strs(self):

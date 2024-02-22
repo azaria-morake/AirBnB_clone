@@ -6,9 +6,9 @@ Unittest classes:
     TestAmenity_save
     TestAmenity_to_dict
 """
-import unittest
 import os
 import models
+import unittest
 from datetime import datetime
 from time import sleep
 from models.amenity import Amenity
@@ -17,7 +17,7 @@ from models.amenity import Amenity
 class TestAmenity_instantiation(unittest.TestCase):
     """Unittests for testing instantiation of the Amenity class."""
 
-    def test_no_args_instantiation(self):
+    def test_no_args_instantiates(self):
         self.assertEqual(Amenity, type(Amenity()))
 
     def test_new_instance_stored_in_objects(self):
@@ -151,9 +151,9 @@ class TestAmenity_to_dict(unittest.TestCase):
 
     def test_to_dict_contains_added_attributes(self):
         am = Amenity()
-        am.middle_name = "Keantjie"
+        am.middle_name = "Holberton"
         am.my_number = 98
-        self.assertEqual("Keantjie", am.middle_name)
+        self.assertEqual("Holberton", am.middle_name)
         self.assertIn("my_number", am.to_dict())
 
     def test_to_dict_datetime_attributes_are_strs(self):
