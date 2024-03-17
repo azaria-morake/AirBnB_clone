@@ -18,7 +18,7 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self):
 
     def do_show(self):
-        self
+        self.create = create.upper()
 
     def do_destroy(self):
 
@@ -28,7 +28,10 @@ class HBNBCommand(cmd.Cmd):
 
     def help_EOF(self):
         print("Quit command to exit the program")
+
     def emptyline(self):
         pass
+
+
 if __name__ == '__main__':
-	HBNBCommand().cmdloop()
+    HBNBCommand().cmdloop()
