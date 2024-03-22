@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+import json
+import uuid
 from datetime import date
 
 """
@@ -14,8 +16,8 @@ Create base model.
 
 
 class BaseModel():
-    self.__init__(self, id, created_at, updated_at):
-        self.id =
+    def __init__(self, id, created_at, updated_at):
+        self.id = str(uuid.uuid4().hex)
         # update with the current datetime when an object is creted.
         self.created_at = date.today()
         # update with the current date time when
