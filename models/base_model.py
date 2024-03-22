@@ -27,9 +27,8 @@ class BaseModel():
         # updates the public intance 'updated_at'
         # when an update has been attached.
         def save(self):
+            pass
 
-        def to_json(self):
-            """
-            returns a dictionary containing all
-            key/value of __dict__ of the instance
-            """
+        def to_json(self, **db):
+            with open("db.json", "w") as write:
+                json.dump(self.db, write)  # serialized data structure.
